@@ -1,1 +1,7 @@
-luz
+<div class="col-md-8 col-md-offset-2">
+	<h1>All posts</h1>
+	<% @messages.each do |message| %>
+		<h2><%= message.title %></h2>
+		<p><%= message.description %></p>
+	<% end %>
+</div>
