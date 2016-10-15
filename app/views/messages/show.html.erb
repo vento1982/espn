@@ -9,5 +9,8 @@
 			<%= link_to "Edit", edit_message_path(@message), class: "btn btn-primary btn-xs" %>
 			<%= link_to "Delete", message_path(@message), method: :delete, data: {confirm: "Are You sure?"}, class: "btn btn-danger btn-xs" %>
 		</div>
+	</div>	
+	<div class="coments-show">
+	<%= render 'comments/new' %>
 	</div>		
 </div>
