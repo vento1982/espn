@@ -6,8 +6,12 @@
 		
 		<div class="links btn-group">
 			<%= link_to "Back", root_path, class: "btn btn-default btn-xs" %>
-			<%= link_to "Edit", edit_message_path(@message), class: "btn btn-primary btn-xs" %>
-			<%= link_to "Delete", message_path(@message), method: :delete, data: {confirm: "Are You sure?"}, class: "btn btn-danger btn-xs" %>
+			<% if user_signed_in? %>
+				<% if @message.user_id == current_user.id %>
+					<%= link_to "Edit", edit_message_path(@message), class: "btn btn-primary btn-xs" %>
+					<%= link_to "Delete", message_path(@message), method: :delete, data: {confirm: "Are You sure?"}, class: "btn btn-danger btn-xs" %>
+				<% end %>
+			<% end %>
 		</div>
 
 		<h3>Comments</h3>
@@ -15,6 +19,7 @@
 
 		<h3>Join discusion:</h3>
 		<%= render 'comments/form' %>
+
 		
 	</div>	
 </div>
